@@ -1,81 +1,148 @@
-/* =====================================================================
-   Vivory – Landingpage Lead-Formular
-   --------------------------------------------------------------------
-   So schließt du deinen E-Mail-Dienst an:
-   Trage bei jedem <form> im HTML deine Endpoint-URL ein:
-       <form data-endpoint="https://...">
-   Beispiele:
-     • Brevo (Sendinblue):  Formular-URL aus dem Brevo-Editor
-     • CleverReach:         "HTML-Formular" Action-URL
-     • Mailchimp:           ".../subscribe/post" URL
-     • Eigener Server:      eigene POST-Route
-   Solange data-endpoint leer/Platzhalter ist, läuft das Formular im
-   Demo-Modus (zeigt nur die Danke-Meldung, sendet nichts).
-   ===================================================================== */
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vivory Chatbot – Dein kostenloser LinkedIn-Assistent</title>
+  <meta name="description" content="Hol dir den Vivory Chatbot: Dein smarter Helfer für bessere LinkedIn-Posts, Hooks und Ideen. Kostenlos – als Dankeschön fürs Eintragen." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="vivory.css" />
+</head>
+<body>
 
-(function () {
-  "use strict";
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="index.html"><span class="dot"></span>Vivory <b>Chatbot</b></a>
+      <a class="btn btn-primary" href="#holen">Kostenlos holen</a>
+    </div>
+  </header>
 
-  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  var PLACEHOLDER = "REPLACE_WITH_YOUR_FORM_ENDPOINT";
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <img src="vivory-studios-logo.png" alt="Vivory Studios" class="brand-logo brand-logo-sm" style="margin-bottom:22px" />
+        <div class="badge-row">
+          <span class="badge">Kostenlos</span>
+          <span class="badge">Sofort nutzbar</span>
+        </div>
+        <h1>Dein persönlicher LinkedIn-Assistent. Geschenkt.</h1>
+        <p class="lead">Der Vivory Chatbot hilft dir, in Minuten bessere Posts, Hooks und Content-Ideen zu entwickeln. Kein leeres Blatt mehr – einfach loslegen.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary btn-lg" href="#holen">Jetzt gratis sichern</a>
+        </div>
+        <p class="hero-note">100&nbsp;% kostenlos. Du brauchst nur deine E-Mail-Adresse.</p>
+      </div>
 
-  function init(form) {
-    var wrapper = form.closest(".lead-card") || form.parentElement;
-    var status = form.querySelector(".form-status");
-    var endpoint = form.getAttribute("data-endpoint") || "";
+      <!-- LEAD FORM -->
+      <div class="lead-card" id="holen">
+        <h3>Chatbot kostenlos freischalten</h3>
+        <p style="color:var(--muted);margin-top:0">Trag dich ein und du bekommst den Zugang direkt per E-Mail.</p>
+        <form data-lead-form data-endpoint="REPLACE_WITH_YOUR_FORM_ENDPOINT">
+          <input type="hidden" name="quelle" value="chatbot-leadmagnet" />
+          <div class="form-row">
+            <label class="form-label" for="c-name">Vorname</label>
+            <input class="form-control" id="c-name" type="text" name="vorname" placeholder="Dein Vorname" autocomplete="given-name" />
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="c-email">E-Mail-Adresse *</label>
+            <input class="form-control" id="c-email" type="email" name="email" placeholder="du@beispiel.de" autocomplete="email" required />
+          </div>
+          <label class="consent">
+            <input type="checkbox" name="newsletter_consent" required />
+            <span>Ja, schickt mir den Zugang zum Vivory Chatbot und nehmt mich in den Vivory-Newsletter mit LinkedIn-Tipps auf. Ich kann mich jederzeit über den Abmeldelink wieder austragen. Details in der <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.</span>
+          </label>
+          <button class="btn btn-primary btn-block btn-lg" type="submit">Gratis-Zugang anfordern</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+          <p class="form-hint">Double-Opt-In: Bitte bestätige die E-Mail, dann schalten wir dir den Chatbot frei.</p>
+        </form>
+        <div class="form-success">
+          <div class="check">✓</div>
+          <h3>Check dein Postfach!</h3>
+          <p style="color:var(--muted)">Wir haben dir eine Bestätigungs-E-Mail geschickt. Ein Klick darin – und dein Chatbot-Zugang ist unterwegs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      setStatus("");
+  <!-- WAS KANN ER -->
+  <section>
+    <div class="container">
+      <div class="center" style="margin-bottom:40px">
+        <span class="eyebrow">Was der Chatbot für dich tut</span>
+        <h2>Vom leeren Blatt zum fertigen Post</h2>
+      </div>
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="ico">🪝</div>
+          <h3>Starke Hooks</h3>
+          <p>Lass dir Einstiegssätze vorschlagen, die im Feed stoppen lassen – passend zu deinem Thema.</p>
+        </div>
+        <div class="card">
+          <div class="ico">💡</div>
+          <h3>Ideen auf Knopfdruck</h3>
+          <p>Nie wieder Ideenlosigkeit: Der Bot liefert dir Themen, die zu deiner Zielgruppe passen.</p>
+        </div>
+        <div class="card">
+          <div class="ico">⚡</div>
+          <h3>Schneller fertig</h3>
+          <p>Roher Gedanke rein, strukturierter Post-Entwurf raus. Du gibst nur noch deinen Feinschliff dazu.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      var email = (form.querySelector('input[type="email"]') || {}).value || "";
-      email = email.trim();
-      var consent = form.querySelector('input[name="newsletter_consent"]');
+  <!-- SO FUNKTIONIERTS -->
+  <section class="cta-band">
+    <div class="container">
+      <div class="center" style="margin-bottom:40px">
+        <span class="eyebrow">In 3 Schritten</span>
+        <h2>So einfach geht's</h2>
+      </div>
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="ico">1</div>
+          <h3>Eintragen</h3>
+          <p>E-Mail rein, Einwilligung bestätigen – fertig.</p>
+        </div>
+        <div class="card">
+          <div class="ico">2</div>
+          <h3>Zugang erhalten</h3>
+          <p>Du bekommst den Link zum Chatbot direkt ins Postfach.</p>
+        </div>
+        <div class="card">
+          <div class="ico">3</div>
+          <h3>Loslegen</h3>
+          <p>Stell deine erste Frage und produziere sofort besseren Content.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      if (!EMAIL_RE.test(email)) {
-        setStatus("Bitte gib eine gültige E-Mail-Adresse ein.", "error");
-        return;
-      }
-      if (consent && !consent.checked) {
-        setStatus("Bitte bestätige die Einwilligung, um fortzufahren.", "error");
-        return;
-      }
+  <!-- BRÜCKE ZUR MASTERMIND -->
+  <section class="center">
+    <div class="container">
+      <span class="eyebrow">Und danach?</span>
+      <h2>Bereit für die ganze Strategie?</h2>
+      <p class="lead">Der Chatbot ist dein Einstieg. Wenn du LinkedIn systematisch zur Kundengewinnung nutzen willst, ist die Vivory Mastermind dein nächster Schritt.</p>
+      <p style="margin-top:28px"><a class="btn btn-lg" href="mastermind.html">Mehr zur Mastermind</a></p>
+    </div>
+  </section>
 
-      var btn = form.querySelector('button[type="submit"]');
-      if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = "Wird gesendet …"; }
+  <footer>
+    <div class="container">
+      <span>© <span data-year>2026</span> Vivory · Alessandro &amp; Viktoria</span>
+      <span>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="index.html">Alle Angebote</a>
+      </span>
+    </div>
+  </footer>
 
-      // Demo-Modus: kein echter Endpoint hinterlegt
-      if (!endpoint || endpoint === PLACEHOLDER) {
-        window.setTimeout(function () { succeed(); }, 600);
-        return;
-      }
+  <script src="vivory.js"></script>
+</body>
+</html>
 
-      var data = new FormData(form);
-      fetch(endpoint, { method: "POST", body: data, mode: "no-cors" })
-        .then(function () { succeed(); })
-        .catch(function () {
-          setStatus("Etwas ist schiefgelaufen. Bitte versuch es noch einmal.", "error");
-          if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label || "Absenden"; }
-        });
-    });
-
-    function succeed() {
-      if (wrapper) wrapper.classList.add("is-submitted");
-      else { form.reset(); setStatus("Geschafft! Bitte bestätige jetzt die E-Mail in deinem Postfach.", "success"); }
-    }
-
-    function setStatus(msg, type) {
-      if (!status) return;
-      status.textContent = msg;
-      status.className = "form-status" + (type ? " " + type : "");
-    }
-  }
-
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll("form[data-lead-form]").forEach(init);
-    // aktuelles Jahr im Footer
-    document.querySelectorAll("[data-year]").forEach(function (el) {
-      el.textContent = new Date().getFullYear();
-    });
-  });
-})();

@@ -3,145 +3,223 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vivory Chatbot – Dein kostenloser LinkedIn-Assistent</title>
-  <meta name="description" content="Hol dir den Vivory Chatbot: Dein smarter Helfer für bessere LinkedIn-Posts, Hooks und Ideen. Kostenlos – als Dankeschön fürs Eintragen." />
+  <title>Datenschutzerklärung – Vivory Studios</title>
+  <meta name="robots" content="noindex, nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/vivory.css" />
+  <link rel="stylesheet" href="vivory.css" />
+  <style>
+    .legal h2 { font-size: 20px; margin: 40px 0 10px; }
+    .legal h3 { font-size: 16px; font-family: var(--font-body); margin: 22px 0 8px; color: var(--text); }
+    .legal p, .legal li { color: var(--muted); line-height: 1.8; margin: 0 0 12px; }
+    .legal ul { padding-left: 20px; margin: 0 0 12px; }
+    .legal a { color: var(--gold-light); }
+    .legal hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+    .legal .notice {
+      background: var(--gold-bg);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin: 16px 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
 
   <header class="topbar">
     <div class="container">
-      <a class="brand" href="index.html"><span class="dot"></span>Vivory <b>Chatbot</b></a>
-      <a class="btn btn-primary" href="#holen">Kostenlos holen</a>
+      <a class="brand" href="index.html"><span class="dot"></span>Vivory</a>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <img src="assets/vivory-studios-logo.png" alt="Vivory Studios" class="brand-logo brand-logo-sm" style="margin-bottom:22px" />
-        <div class="badge-row">
-          <span class="badge">Kostenlos</span>
-          <span class="badge">Sofort nutzbar</span>
-        </div>
-        <h1>Dein persönlicher LinkedIn-Assistent. Geschenkt.</h1>
-        <p class="lead">Der Vivory Chatbot hilft dir, in Minuten bessere Posts, Hooks und Content-Ideen zu entwickeln. Kein leeres Blatt mehr – einfach loslegen.</p>
-        <div class="cta-row">
-          <a class="btn btn-primary btn-lg" href="#holen">Jetzt gratis sichern</a>
-        </div>
-        <p class="hero-note">100&nbsp;% kostenlos. Du brauchst nur deine E-Mail-Adresse.</p>
-      </div>
+  <section style="padding-top: clamp(48px, 7vw, 80px); padding-bottom: clamp(48px, 7vw, 80px);">
+    <div class="container" style="max-width: 720px;">
+      <span class="eyebrow">Rechtliches</span>
+      <h1 style="font-size: clamp(28px, 4vw, 40px); margin-bottom: 8px;">Datenschutzerklärung</h1>
+      <p style="color: var(--muted-soft); margin-bottom: 40px;">Stand: Juni 2026</p>
 
-      <!-- LEAD FORM -->
-      <div class="lead-card" id="holen">
-        <h3>Chatbot kostenlos freischalten</h3>
-        <p style="color:var(--muted);margin-top:0">Trag dich ein und du bekommst den Zugang direkt per E-Mail.</p>
-        <form data-lead-form data-endpoint="REPLACE_WITH_YOUR_FORM_ENDPOINT">
-          <input type="hidden" name="quelle" value="chatbot-leadmagnet" />
-          <div class="form-row">
-            <label class="form-label" for="c-name">Vorname</label>
-            <input class="form-control" id="c-name" type="text" name="vorname" placeholder="Dein Vorname" autocomplete="given-name" />
-          </div>
-          <div class="form-row">
-            <label class="form-label" for="c-email">E-Mail-Adresse *</label>
-            <input class="form-control" id="c-email" type="email" name="email" placeholder="du@beispiel.de" autocomplete="email" required />
-          </div>
-          <label class="consent">
-            <input type="checkbox" name="newsletter_consent" required />
-            <span>Ja, schickt mir den Zugang zum Vivory Chatbot und nehmt mich in den Vivory-Newsletter mit LinkedIn-Tipps auf. Ich kann mich jederzeit über den Abmeldelink wieder austragen. Details in der <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.</span>
-          </label>
-          <button class="btn btn-primary btn-block btn-lg" type="submit">Gratis-Zugang anfordern</button>
-          <p class="form-status" role="status" aria-live="polite"></p>
-          <p class="form-hint">Double-Opt-In: Bitte bestätige die E-Mail, dann schalten wir dir den Chatbot frei.</p>
-        </form>
-        <div class="form-success">
-          <div class="check">✓</div>
-          <h3>Check dein Postfach!</h3>
-          <p style="color:var(--muted)">Wir haben dir eine Bestätigungs-E-Mail geschickt. Ein Klick darin – und dein Chatbot-Zugang ist unterwegs.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+      <div class="legal">
 
-  <!-- WAS KANN ER -->
-  <section>
-    <div class="container">
-      <div class="center" style="margin-bottom:40px">
-        <span class="eyebrow">Was der Chatbot für dich tut</span>
-        <h2>Vom leeren Blatt zum fertigen Post</h2>
-      </div>
-      <div class="grid grid-3">
-        <div class="card">
-          <div class="ico">🪝</div>
-          <h3>Starke Hooks</h3>
-          <p>Lass dir Einstiegssätze vorschlagen, die im Feed stoppen lassen – passend zu deinem Thema.</p>
-        </div>
-        <div class="card">
-          <div class="ico">💡</div>
-          <h3>Ideen auf Knopfdruck</h3>
-          <p>Nie wieder Ideenlosigkeit: Der Bot liefert dir Themen, die zu deiner Zielgruppe passen.</p>
-        </div>
-        <div class="card">
-          <div class="ico">⚡</div>
-          <h3>Schneller fertig</h3>
-          <p>Roher Gedanke rein, strukturierter Post-Entwurf raus. Du gibst nur noch deinen Feinschliff dazu.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <!-- 1 -->
+        <h2>1. Verantwortlicher</h2>
+        <p>
+          Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:<br /><br />
+          Vivorystudios LLC<br />
+          7901 4th Street North, STE 300<br />
+          St. Petersburg, Florida 33702, USA<br /><br />
+          Vertretungsberechtigte Person: Viktoria Rupp<br />
+          E-Mail: <a href="mailto:Viktoria.Rupp.Writes@gmail.com">Viktoria.Rupp.Writes@gmail.com</a>
+        </p>
 
-  <!-- SO FUNKTIONIERTS -->
-  <section class="cta-band">
-    <div class="container">
-      <div class="center" style="margin-bottom:40px">
-        <span class="eyebrow">In 3 Schritten</span>
-        <h2>So einfach geht's</h2>
-      </div>
-      <div class="grid grid-3">
-        <div class="card">
-          <div class="ico">1</div>
-          <h3>Eintragen</h3>
-          <p>E-Mail rein, Einwilligung bestätigen – fertig.</p>
-        </div>
-        <div class="card">
-          <div class="ico">2</div>
-          <h3>Zugang erhalten</h3>
-          <p>Du bekommst den Link zum Chatbot direkt ins Postfach.</p>
-        </div>
-        <div class="card">
-          <div class="ico">3</div>
-          <h3>Loslegen</h3>
-          <p>Stell deine erste Frage und produziere sofort besseren Content.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <!-- 2 -->
+        <h2>2. Allgemeines zur Datenverarbeitung</h2>
+        <p>
+          Wir verarbeiten personenbezogene Daten nur, soweit dies zur Bereitstellung einer
+          funktionsfähigen Website sowie unserer Inhalte und Leistungen erforderlich ist.
+          Eine Verarbeitung personenbezogener Daten erfolgt nur mit Ihrer Einwilligung
+          oder soweit eine sonstige Rechtsgrundlage nach Art. 6 DSGVO vorliegt.
+        </p>
 
-  <!-- BRÜCKE ZUR MASTERMIND -->
-  <section class="center">
-    <div class="container">
-      <span class="eyebrow">Und danach?</span>
-      <h2>Bereit für die ganze Strategie?</h2>
-      <p class="lead">Der Chatbot ist dein Einstieg. Wenn du LinkedIn systematisch zur Kundengewinnung nutzen willst, ist die Vivory Mastermind dein nächster Schritt.</p>
-      <p style="margin-top:28px"><a class="btn btn-lg" href="mastermind.html">Mehr zur Mastermind</a></p>
+        <!-- 3 -->
+        <h2>3. Hosting und Bereitstellung der Website</h2>
+        <p>
+          Diese Website wird gehostet von Tilda Publishing LLC (nachfolgend „Tilda"),
+          einem Website-Builder-Dienst. Beim Aufruf unserer Seiten werden Ihre Daten auf
+          den Servern von Tilda verarbeitet. Tilda kann dabei Server in verschiedenen
+          Ländern einsetzen. Weitere Informationen finden Sie in der Datenschutzerklärung
+          von Tilda: <a href="https://tilda.cc/privacy/" target="_blank" rel="noopener noreferrer">tilda.cc/privacy</a>.
+        </p>
+        <p>
+          Wir haben mit Tilda einen Auftragsverarbeitungsvertrag gemäß Art. 28 DSGVO
+          geschlossen bzw. stützen uns auf die von Tilda bereitgestellten
+          Standardvertragsklauseln für Drittlandübermittlungen.
+        </p>
+        <p>
+          Beim Aufruf unserer Website übermittelt Ihr Browser automatisch Daten an den
+          Webserver (sog. Server-Logfiles), darunter IP-Adresse, Datum und Uhrzeit des Abrufs,
+          aufgerufene URL, übertragene Datenmenge sowie Referrer-URL.
+          Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer
+          sicheren und störungsfreien Bereitstellung).
+        </p>
+
+        <!-- 4 -->
+        <h2>4. Google Fonts</h2>
+        <p>
+          Diese Website lädt Schriftarten über den Dienst Google Fonts (Google Ireland Limited,
+          Gordon House, Barrow Street, Dublin 4, Irland). Dabei wird Ihre IP-Adresse beim Laden
+          der Seite an Google-Server übertragen. Google kann diese IP-Adresse auch auf
+          US-amerikanische Server übertragen.
+        </p>
+        <p>
+          Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer
+          einheitlichen Darstellung der Website). Wir empfehlen, Google Fonts durch eine lokal
+          gehostete Version zu ersetzen, um die IP-Übertragung zu vermeiden.
+        </p>
+        <p>
+          Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>
+        </p>
+
+        <!-- 5 -->
+        <h2>5. Kontaktformular und Newsletter-Anmeldung</h2>
+
+        <h3>Welche Daten werden erhoben?</h3>
+        <p>Wenn Sie sich über unsere Formulare eintragen, verarbeiten wir:</p>
+        <ul>
+          <li>Vorname (freiwillig)</li>
+          <li>E-Mail-Adresse (Pflichtfeld)</li>
+          <li>Zeitstempel der Einwilligung</li>
+          <li>Herkunftsseite (internes Kennzeichen, kein Tracking)</li>
+        </ul>
+
+        <h3>Zweck und Rechtsgrundlage</h3>
+        <p>
+          Die Daten werden ausschließlich dazu verwendet, Ihnen die angeforderten Informationen
+          (Wartelisten-Updates, Kurs-Zugänge) sowie den Vivory-Newsletter zuzusenden.
+          Rechtsgrundlage ist Ihre ausdrückliche Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO.
+        </p>
+
+        <h3>Double-Opt-In</h3>
+        <p>
+          Nach Absenden des Formulars erhalten Sie eine Bestätigungs-E-Mail. Ihre Anmeldung
+          wird erst nach Klick auf den Bestätigungslink aktiviert. Zeitpunkt und IP-Adresse
+          der Bestätigung werden gespeichert (Nachweis der Einwilligung).
+        </p>
+
+        <h3>E-Mail-Dienstleister</h3>
+        <p>
+          Für den Versand unserer E-Mails und die Verwaltung von Abonnements nutzen wir den
+          Dienst <strong>Kit</strong> (ConvertKit LLC, 750 N 7th Street, Suite 300,
+          Boise, Idaho 83702, USA). Kit verarbeitet die eingetragenen Daten
+          (Vorname, E-Mail-Adresse) in unserem Auftrag auf Servern in den USA.
+        </p>
+        <p>
+          Da Kit in den USA ansässig ist, erfolgt eine Übermittlung in ein Drittland.
+          Grundlage hierfür sind Standardvertragsklauseln (SCCs) gemäß Art. 46 Abs. 2
+          lit. c DSGVO. Weitere Informationen zur Datenverarbeitung durch Kit:
+          <a href="https://kit.com/privacy" target="_blank" rel="noopener noreferrer">kit.com/privacy</a>.
+        </p>
+        <p>
+          Wir haben mit Kit einen Auftragsverarbeitungsvertrag gemäß Art. 28 DSGVO geschlossen.
+        </p>
+
+        <h3>Widerruf der Einwilligung</h3>
+        <p>
+          Sie können Ihre Einwilligung jederzeit ohne Angabe von Gründen widerrufen, indem Sie
+          auf den Abmeldelink in jeder E-Mail klicken oder uns per E-Mail an
+          <a href="mailto:Viktoria.Rupp.Writes@gmail.com">Viktoria.Rupp.Writes@gmail.com</a>
+          kontaktieren. Der Widerruf berührt nicht die Rechtmäßigkeit der bis dahin erfolgten
+          Verarbeitung.
+        </p>
+
+        <h3>Speicherdauer</h3>
+        <p>
+          Ihre Daten werden gespeichert, solange Sie den Newsletter abonnieren. Nach Abmeldung
+          werden Ihre Daten gelöscht, soweit keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
+        </p>
+
+        <hr />
+
+        <!-- 6 -->
+        <h2>6. Ihre Rechte</h2>
+        <p>Sie haben gegenüber uns folgende Rechte hinsichtlich Ihrer personenbezogenen Daten:</p>
+        <ul>
+          <li><strong>Auskunft</strong> (Art. 15 DSGVO)</li>
+          <li><strong>Berichtigung</strong> (Art. 16 DSGVO)</li>
+          <li><strong>Löschung</strong> (Art. 17 DSGVO)</li>
+          <li><strong>Einschränkung der Verarbeitung</strong> (Art. 18 DSGVO)</li>
+          <li><strong>Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
+          <li><strong>Widerspruch</strong> gegen die Verarbeitung (Art. 21 DSGVO)</li>
+          <li><strong>Widerruf</strong> einer erteilten Einwilligung (Art. 7 Abs. 3 DSGVO)</li>
+        </ul>
+        <p>
+          Zur Ausübung Ihrer Rechte wenden Sie sich an:
+          <a href="mailto:Viktoria.Rupp.Writes@gmail.com">Viktoria.Rupp.Writes@gmail.com</a>
+        </p>
+
+        <!-- 7 -->
+        <h2>7. Beschwerderecht bei einer Aufsichtsbehörde</h2>
+        <p>
+          Unbeschadet anderweitiger verwaltungsrechtlicher oder gerichtlicher Rechtsbehelfe
+          steht Ihnen das Recht auf Beschwerde bei einer Datenschutz-Aufsichtsbehörde zu,
+          insbesondere in dem Mitgliedstaat Ihres Aufenthaltsorts, Ihres Arbeitsplatzes oder
+          des Orts des mutmaßlichen Verstoßes.
+        </p>
+
+        <!-- 8 -->
+        <h2>8. Datenübermittlung in Drittländer</h2>
+        <p>
+          Da wir als US-amerikanisches Unternehmen tätig sind, können Daten in die USA übertragen
+          werden. Sofern kein Angemessenheitsbeschluss der EU-Kommission vorliegt, stützen wir
+          uns auf Standardvertragsklauseln (SCCs) gemäß Art. 46 Abs. 2 lit. c DSGVO als geeignete
+          Garantie. Auf entsprechende Nachfrage stellen wir Ihnen die Klauseln zur Verfügung.
+        </p>
+
+        <!-- 9 -->
+        <h2>9. Aktualität dieser Datenschutzerklärung</h2>
+        <p>
+          Diese Datenschutzerklärung ist aktuell gültig und hat den Stand Juni 2026. Durch die
+          Weiterentwicklung unserer Website oder aufgrund geänderter gesetzlicher Vorgaben kann
+          eine Anpassung erforderlich werden.
+        </p>
+
+      </div>
     </div>
   </section>
 
   <footer>
     <div class="container">
-      <span>© <span data-year>2026</span> Vivory · Alessandro &amp; Viktoria</span>
+      <span>© <span data-year>2026</span> Vivorystudios LLC</span>
       <span>
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
-        <a href="index.html">Alle Angebote</a>
+        <a href="index.html">Startseite</a>
       </span>
     </div>
   </footer>
 
-  <script src="assets/vivory.js"></script>
+  <script src="vivory.js"></script>
 </body>
 </html>
