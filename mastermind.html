@@ -8,7 +8,384 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/vivory.css" />
+  <style>
+/* =====================================================================
+   Vivory – Landingpage Styles
+   Markenfarben übernommen aus extensionPopups/options.css
+   ===================================================================== */
+
+:root {
+  --bg:            #0e2007;
+  --bg-deep:       #071a03;
+  --panel:         rgba(22, 45, 12, 0.60);
+  --panel-2:       rgba(22, 45, 12, 0.80);
+  --border:        rgba(255, 255, 255, 0.09);
+  --border-gold:   rgba(196, 151, 58, 0.40);
+
+  --gold:          #C4973A;
+  --gold-light:    #d4a94a;
+  --gold-bg:       rgba(196, 151, 58, 0.16);
+  --gold-border:   rgba(196, 151, 58, 0.45);
+
+  --text:          #F8F5EF;
+  --muted:         rgba(248, 245, 239, 0.62);
+  --muted-soft:    rgba(248, 245, 239, 0.45);
+
+  --success:       #10b981;
+  --danger:        #ef4444;
+
+  --shadow:        0 18px 60px rgba(0, 0, 0, 0.55);
+  --radius:        18px;
+  --radius-sm:     12px;
+
+  --font-head: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  --maxw: 1080px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--text);
+  background:
+    radial-gradient(1100px 500px at 15% -5%, rgba(196, 151, 58, 0.14), transparent 60%),
+    radial-gradient(900px 500px at 95% 0%, rgba(30, 61, 15, 0.55), transparent 55%),
+    var(--bg);
+  background-attachment: fixed;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { max-width: 100%; display: block; }
+a { color: var(--gold-light); }
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: clamp(20px, 5vw, 40px);
+}
+
+/* ---------- Topbar ---------- */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(10px);
+  background: rgba(7, 26, 3, 0.72);
+  border-bottom: 1px solid rgba(196, 151, 58, 0.20);
+}
+.topbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.3px;
+  color: var(--text);
+  text-decoration: none;
+}
+.brand .dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 14px rgba(196, 151, 58, 0.8);
+}
+.brand b { color: var(--gold); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform .12s ease, background .15s ease, border-color .15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-primary {
+  background: linear-gradient(180deg, rgba(196,151,58,0.30), rgba(196,151,58,0.16));
+  border-color: var(--gold-border);
+  color: var(--text);
+  box-shadow: 0 8px 24px rgba(196, 151, 58, 0.18);
+}
+.btn-primary:hover {
+  background: linear-gradient(180deg, rgba(196,151,58,0.42), rgba(196,151,58,0.24));
+  border-color: rgba(196, 151, 58, 0.7);
+}
+.btn-lg { padding: 16px 32px; font-size: 17px; }
+.btn-block { width: 100%; }
+
+/* ---------- Sections ---------- */
+section { padding: clamp(56px, 9vw, 110px) 0; }
+.eyebrow {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+h1, h2, h3 { font-family: var(--font-head); font-weight: 600; line-height: 1.12; margin: 0 0 .5em; }
+h1 { font-size: clamp(38px, 6vw, 68px); letter-spacing: -0.5px; }
+h2 { font-size: clamp(28px, 4vw, 44px); }
+h3 { font-size: clamp(20px, 2.4vw, 26px); }
+.lead { font-size: clamp(17px, 2.2vw, 21px); color: var(--muted); max-width: 60ch; }
+.center { text-align: center; }
+.center .lead { margin-inline: auto; }
+
+/* ---------- Hero ---------- */
+.hero { padding-top: clamp(60px, 9vw, 120px); }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+.hero h1 { margin-bottom: 22px; }
+.hero .cta-row { margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-note { margin-top: 18px; font-size: 14px; color: var(--muted-soft); }
+
+.badge-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+.badge {
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--gold-border);
+  background: var(--gold-bg);
+  color: var(--gold-light);
+}
+
+/* ---------- Cards ---------- */
+.grid { display: grid; gap: 22px; }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+.card .ico {
+  width: 48px; height: 48px;
+  display: grid; place-items: center;
+  border-radius: 12px;
+  background: var(--gold-bg);
+  border: 1px solid var(--gold-border);
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+.card h3 { margin-bottom: 8px; }
+.card p { color: var(--muted); margin: 0; }
+
+/* ---------- Feature list ---------- */
+.checklist { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.checklist li { display: flex; gap: 12px; align-items: flex-start; color: var(--text); }
+.checklist li::before {
+  content: "✓";
+  flex: none;
+  width: 24px; height: 24px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: var(--gold-bg);
+  border: 1px solid var(--gold-border);
+  color: var(--gold-light);
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+/* ---------- Price ---------- */
+.price-box {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 24px 40px;
+  border-radius: var(--radius);
+  background: var(--gold-bg);
+  border: 1px solid var(--gold-border);
+}
+.price-box .amount { font-family: var(--font-head); font-size: 48px; color: var(--gold-light); }
+.price-box .terms { color: var(--muted); font-size: 14px; }
+
+/* ---------- Form / Lead capture ---------- */
+.lead-card {
+  background: var(--panel-2);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius);
+  padding: clamp(24px, 4vw, 40px);
+  box-shadow: var(--shadow);
+}
+.form-row { margin-bottom: 16px; }
+.form-label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 7px; }
+.form-control {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: rgba(7, 26, 3, 0.55);
+  color: var(--text);
+  font: inherit;
+}
+.form-control::placeholder { color: var(--muted-soft); }
+.form-control:focus {
+  outline: none;
+  border-color: var(--gold-border);
+  box-shadow: 0 0 0 3px rgba(196, 151, 58, 0.14);
+}
+
+.consent {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin: 8px 0 20px;
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.consent input[type="checkbox"] {
+  flex: none;
+  width: 20px; height: 20px;
+  margin-top: 2px;
+  accent-color: var(--gold);
+  cursor: pointer;
+}
+.consent a { color: var(--gold-light); }
+
+.form-hint { font-size: 12.5px; color: var(--muted-soft); margin-top: 14px; text-align: center; }
+
+.form-status { margin-top: 14px; font-size: 14px; min-height: 1em; }
+.form-status.error { color: #fca5a5; }
+.form-status.success { color: #6ee7b7; }
+
+/* success state swap */
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 12px 0;
+}
+.form-success .check {
+  width: 64px; height: 64px;
+  margin: 0 auto 16px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.16);
+  border: 1px solid rgba(16, 185, 129, 0.5);
+  font-size: 30px;
+  color: #6ee7b7;
+}
+.is-submitted form { display: none; }
+.is-submitted .form-success { display: block; }
+
+/* ---------- FAQ / Accordion ---------- */
+.faq details {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--panel);
+  margin-bottom: 12px;
+  padding: 0 20px;
+}
+.faq summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 18px 0;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--gold); font-size: 22px; }
+.faq details[open] summary::after { content: "–"; }
+.faq details[open] summary { border-bottom: 1px solid var(--border); }
+.faq details p { color: var(--muted); padding: 16px 0; margin: 0; }
+
+/* ---------- CTA band ---------- */
+.cta-band {
+  background:
+    radial-gradient(800px 220px at 50% 0%, rgba(196, 151, 58, 0.20), transparent 60%),
+    var(--panel-2);
+  border-top: 1px solid var(--border-gold);
+  border-bottom: 1px solid var(--border-gold);
+}
+
+/* ---------- Footer ---------- */
+footer {
+  padding: 40px 0;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 14px;
+}
+footer .container { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; }
+footer a { color: var(--muted); text-decoration: none; margin-left: 18px; }
+footer a:hover { color: var(--gold-light); }
+
+/* ---------- Brand-Logo (weißer Hintergrund entfernt via CSS) ---------- */
+/*
+   Funktionsweise:
+   1. invert(1)          : weißer Bg → schwarz, Gold → bläulich
+   2. sepia(1)+saturate  : alles in warme Braun-/Goldtöne
+   3. hue-rotate(350deg) : Feinabstimmung Richtung Marken-Gold
+   4. mix-blend-mode:screen: schwarze Flächen (ehem. weißer Bg) werden
+      transparent → Seitenhintergrund scheint durch
+*/
+.brand-logo {
+  display: block;
+  height: auto;
+  filter: invert(1) sepia(1) saturate(3.2) hue-rotate(350deg);
+  mix-blend-mode: screen;
+  opacity: 0.88;
+}
+.brand-logo-sm  { height: clamp(50px, 7vw, 74px); width: auto; }
+.brand-logo-md  { height: clamp(70px, 10vw, 105px); width: auto; }
+
+/* ---------- Index / overview cards ---------- */
+.lp-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform .14s ease, border-color .14s ease;
+}
+.lp-link:hover { transform: translateY(-4px); border-color: var(--gold-border); }
+.lp-link .tag { font-size: 12px; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .hero-grid, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+  .topbar .container { height: 58px; }
+  .brand { font-size: 19px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; }
+}
+</style>
 </head>
 <body>
 
@@ -23,7 +400,7 @@
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <img src="assets/vivory-mastermind-logo.png" alt="Vivory Mastermind" class="brand-logo brand-logo-sm" style="margin-bottom:22px" />
+        <img src="vivory-mastermind-logo.png" alt="Vivory Mastermind" class="brand-logo brand-logo-sm" style="margin-bottom:22px" />
         <div class="badge-row">
           <span class="badge">Selbstlernkurs</span>
           <span class="badge">LinkedIn-Strategie</span>
@@ -183,6 +560,8 @@
     </div>
   </footer>
 
-  <script src="assets/vivory.js"></script>
+  <script src="vivory.js"></script>
 </body>
 </html>
+
+
