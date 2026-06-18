@@ -385,7 +385,7 @@ footer a:hover { color: var(--gold-light); }
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; transition: none !important; }
 }
-</style>
+  </style>
   <style>
     .legal h2 { font-size: 20px; margin: 40px 0 10px; }
     .legal h3 { font-size: 16px; font-family: var(--font-body); margin: 22px 0 8px; color: var(--text); }
@@ -597,7 +597,91 @@ footer a:hover { color: var(--gold-light); }
     </div>
   </footer>
 
-  <script src="vivory.js"></script>
+  <script>
+/* =====================================================================
+   Vivory – Landingpage Lead-Formular
+   --------------------------------------------------------------------
+   So schließt du deinen E-Mail-Dienst an:
+   Trage bei jedem <form> im HTML deine Endpoint-URL ein:
+       <form data-endpoint="https://...">
+   Beispiele:
+     • Brevo (Sendinblue):  Formular-URL aus dem Brevo-Editor
+     • CleverReach:         "HTML-Formular" Action-URL
+     • Mailchimp:           ".../subscribe/post" URL
+     • Eigener Server:      eigene POST-Route
+   Solange data-endpoint leer/Platzhalter ist, läuft das Formular im
+   Demo-Modus (zeigt nur die Danke-Meldung, sendet nichts).
+   ===================================================================== */
+
+(function () {
+  "use strict";
+
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  var PLACEHOLDER = "REPLACE_WITH_YOUR_FORM_ENDPOINT";
+
+  function init(form) {
+    var wrapper = form.closest(".lead-card") || form.parentElement;
+    var status = form.querySelector(".form-status");
+    var endpoint = form.getAttribute("data-endpoint") || "";
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      setStatus("");
+
+      var email = (form.querySelector('input[type="email"]') || {}).value || "";
+      email = email.trim();
+      var consent = form.querySelector('input[name="newsletter_consent"]');
+
+      if (!EMAIL_RE.test(email)) {
+        setStatus("Bitte gib eine gültige E-Mail-Adresse ein.", "error");
+        return;
+      }
+      if (consent && !consent.checked) {
+        setStatus("Bitte bestätige die Einwilligung, um fortzufahren.", "error");
+        return;
+      }
+
+      var btn = form.querySelector('button[type="submit"]');
+      if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = "Wird gesendet …"; }
+
+      // Demo-Modus: kein echter Endpoint hinterlegt
+      if (!endpoint || endpoint === PLACEHOLDER) {
+        window.setTimeout(function () { succeed(); }, 600);
+        return;
+      }
+
+      var kitData = new FormData();
+      kitData.append("email_address", email);
+      var vorname = (form.querySelector('input[name="vorname"]') || {}).value || "";
+      if (vorname.trim()) kitData.append("fields[first_name]", vorname.trim());
+      fetch(endpoint, { method: "POST", body: kitData, mode: "no-cors" })
+        .then(function () { succeed(); })
+        .catch(function () {
+          setStatus("Etwas ist schiefgelaufen. Bitte versuch es noch einmal.", "error");
+          if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label || "Absenden"; }
+        });
+    });
+
+    function succeed() {
+      if (wrapper) wrapper.classList.add("is-submitted");
+      else { form.reset(); setStatus("Geschafft! Bitte bestätige jetzt die E-Mail in deinem Postfach.", "success"); }
+    }
+
+    function setStatus(msg, type) {
+      if (!status) return;
+      status.textContent = msg;
+      status.className = "form-status" + (type ? " " + type : "");
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("form[data-lead-form]").forEach(init);
+    // aktuelles Jahr im Footer
+    document.querySelectorAll("[data-year]").forEach(function (el) {
+      el.textContent = new Date().getFullYear();
+    });
+  });
+})();
+  </script>
 </body>
 </html>
-
