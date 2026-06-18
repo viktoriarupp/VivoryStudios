@@ -573,9 +573,11 @@ footer a:hover { color: var(--gold-light); }
       }
 
       var vorname = (form.querySelector('input[name="vorname"]') || {}).value || "";
-      var params = "api_key=y-9eucLgdfv0xxBRK0aNsg&email=" + encodeURIComponent(email);
-      if (vorname.trim()) params += "&first_name=" + encodeURIComponent(vorname.trim());
-      fetch(endpoint, { method: "POST", body: params, headers: { "Content-Type": "application/x-www-form-urlencoded" }, mode: "no-cors" })
+      var params = new URLSearchParams();
+      params.append("api_key", "y-9eucLgdfv0xxBRK0aNsg");
+      params.append("email", email);
+      if (vorname.trim()) params.append("first_name", vorname.trim());
+      fetch(endpoint, { method: "POST", body: params })
         .then(function () { succeed(); })
         .catch(function () {
           setStatus("Etwas ist schiefgelaufen. Bitte versuch es noch einmal.", "error");
